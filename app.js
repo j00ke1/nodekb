@@ -77,10 +77,8 @@ app.get('/', (req, res) =>{
 				title:'Articles',
 				articles: articles
 			});
-		}
-		
-	});
-	
+		}	
+	});	
 });
 
 //Route files
