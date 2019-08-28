@@ -5,32 +5,27 @@ html
 		link(rel='stylesheet' href='/bower_components/bootstrap/dist/css/bootstrap.css')
 		link(rel='stylesheet' href='/css/style.css')
 	body
-		nav.navbar.navbar-expand.navbar-dark.bg-dark
-				a.navbar-brand(href='/') Knowledgebase
-				|
-				button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample02', aria-controls='navbarsExample02', aria-expanded='false', aria-label='Toggle navigation')
+		nav.navbar.navbar-dark.bg-dark.navbar-expand-sm
+			a.navbar-brand(href='/') Knowledgebase
+			button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarsExample02', aria-controls='navbarsExample02', aria-expanded='false', aria-label='Toggle navigation')
 				span.navbar-toggler-icon
-				|
-				#navbarsExample02.collapse.navbar-collapse
-						ul.navbar-nav.mr-auto
-							li.nav-item
-								a.nav-link(href='/')
-									| Home 
-									span.sr-only (current)
-							|
-							if user       
+			#navbarsExample02.collapse.navbar-collapse
+				ul.navbar-nav.mr-auto
+					li.nav-item
+						a.nav-link(href='/') Home
+							span.sr-only (current)
+					if user
+						li.nav-item
+								a.nav-link(href='/articles/add') Add Article
+				ul.nav.navbar-nav.navbar-right
+						if user
+								li
+										a.nav-link(href='/users/logout') Logout
+						else
 								li.nav-item
-										a.nav-link(href='/articles/add') Add Article
-						|
-						ul.nav.navbar-nav.navbar-right
-								if user
-										li 
-												a.nav-link(href='/users/logout') Logout
-								else
-										li.nav-item
-												a.nav-link(href='/users/register') Register
-										li.nav-item
-												a.nav-link(href='/users/login') Login
+										a.nav-link(href='/users/register') Register
+								li.nav-item
+										a.nav-link(href='/users/login') Login
 		.container
 			br
 			!= messages('message', locals)
@@ -42,6 +37,9 @@ html
 			hr
 			footer
 					p Copyright &copy; 2019
-	script(src='/bower_components/jquery/dist/jquery.min.js')
-	script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+	//- script(src='/bower_components/jquery/dist/jquery.min.js')
+	script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js')
+	//- script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
+	script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js')
 	script(src='/js/main.js')
